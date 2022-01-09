@@ -20,8 +20,11 @@ class DetailEditPage extends StatelessWidget {
                 appBar: AppBar(
                   title: const Text('Chỉnh sửa'),
                   actions: [
-                    IconButton(
-                      icon: const Icon(Icons.save),
+                    TextButton(
+                      child: const Text(
+                        "Lưu",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
                       onPressed: () {
                         // BlocProvider.of<DetailBloc>(context).add(
                         //   DetailSave(xeMay: xeMay),

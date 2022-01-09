@@ -4,6 +4,7 @@ import 'package:salon_xe_may/blocs/category_bloc/bloc/category_bloc.dart';
 import 'package:salon_xe_may/blocs/xemay_bloc/bloc/xemay_bloc.dart';
 import 'package:salon_xe_may/models/xe_may.dart';
 import 'package:salon_xe_may/pages/common_style.dart';
+import 'package:salon_xe_may/pages/create_page.dart';
 import 'package:salon_xe_may/pages/detail_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,7 +24,11 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const CreatePage();
+              }));
+            },
           ),
         ],
       ),
@@ -47,6 +52,18 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             _listViewCategory(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Tìm kiếm',
+                  hintText: "Winner, Honda, Suzuki, ...",
+                  fillColor: Colors.white70,
+                  prefixIcon: Icon(Icons.search),
+                ),
+                onChanged: (value) {},
+              ),
+            ),
             Expanded(child: _buildListItem()),
           ],
         ));

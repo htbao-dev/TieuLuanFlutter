@@ -29,6 +29,26 @@ class _DetailPageState extends State<DetailPage> {
                 xeMay: state.xeMay,
               ),
             ));
+          } else if (state is DetailDelete) {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Text('Bạn có muốn xoá ${state.xeMay.tenXe} không?'),
+                    actions: <Widget>[
+                      TextButton(
+                        child: Text('Có'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      TextButton(
+                        child: Text("Không"),
+                        onPressed: () {},
+                      )
+                    ],
+                  );
+                });
           }
         },
         child: Scaffold(
@@ -77,6 +97,13 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 25,
+                      bottom: 10,
+                    ),
+                    child: _listMauXe(widget.xeMay.mauXe),
+                  ),
                   _info(),
                 ],
               ),
@@ -84,6 +111,18 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _listMauXe(List<String> mauXe) {
+    return Row(
+      children: [
+        for (var i = 0; i < mauXe.length; i++)
+          Icon(
+            Icons.circle,
+            color: Color(int.parse(mauXe[i], radix: 16) + 0xFF000000),
+          )
+      ],
     );
   }
 

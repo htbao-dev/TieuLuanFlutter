@@ -5,6 +5,7 @@ class XeMay {
   String tenXe;
   String thumbnail;
   List<String> hinhAnh;
+  List<String> mauXe;
   int gia;
   String moTa;
   int soLuong;
@@ -18,6 +19,7 @@ class XeMay {
       required this.tenXe,
       required this.thumbnail,
       required this.hinhAnh,
+      required this.mauXe,
       required this.gia,
       required this.moTa,
       required this.soLuong,
